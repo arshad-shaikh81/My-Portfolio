@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arshad Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
@@ -14,43 +13,43 @@
     <!-- Progress Bar -->
     <div id="progress-bar"></div>
 
-    <!-- Hamburger Menu -->
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
     <div class="container">
 
         <!-- Navbar -->
         <nav id="navbar">
+
             <div class="logo">SA</div>
 
             <ul id="nav-menu">
-                <li><a href="#" onclick="closeMenu()">Home</a></li>
+                <li><a href="#top" onclick="closeMenu()">Home</a></li>
                 <li><a href="#services" onclick="closeMenu()">Services</a></li>
                 <li><a href="#certificates" onclick="closeMenu()">Certificates</a></li>
                 <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
                 <li><a href="#about" onclick="closeMenu()">About</a></li>
             </ul>
 
-            <button class="talk-btn" onclick="window.open('https://wa.me/919898368956', '_blank')">Let's Talk</button>
+            <div class="nav-right">
+                <button class="talk-btn" onclick="window.open('https://wa.me/919898368956', '_blank')">Let's Talk</button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
         </nav>
 
-        <!-- Mobile Menu Overlay -->
+        <!-- Mobile Overlay -->
         <div class="mobile-overlay" id="mobile-overlay" onclick="closeMenu()"></div>
 
         <!-- Hero -->
-        <section class="hero">
+        <section class="hero" id="top">
 
             <div class="hero-left">
+
                 <p class="intro">Shaikh Arshad</p>
 
-                <h1>
-                    Backend <br>
-                    Developer
-                </h1>
+                <h1>Backend <br>Developer</h1>
 
                 <h3 id="typing-text"></h3>
 
@@ -64,21 +63,18 @@
                 </a>
 
                 <div class="socials">
-                    <a href="https://www.linkedin.com/in/arshad-shaikh-990878365/" target="_blank"
-                        rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/arshad-shaikh-990878365/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                     </a>
-                    <a href="https://github.com/arshad-shaikh81" target="_blank" rel="noopener noreferrer"
-                        aria-label="GitHub">
+                    <a href="https://github.com/arshad-shaikh81" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path
-                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                         </svg>
                     </a>
                 </div>
+
             </div>
 
             <div class="hero-right">
@@ -93,57 +89,20 @@
         <section id="services" class="services hidden">
             <h2>Services</h2>
             <p>Handle Backend Systems and API Development</p>
-
             <div class="marquee-outer">
                 <div class="marquee-track">
-                    <div class="card">
-                        <h3>Database Management</h3>
-                        <p>Designing and managing efficient databases with MySQL, PostgreSQL and MongoDB.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Backend Development</h3>
-                        <p>Building secure and scalable server-side applications using modern technologies.</p>
-                    </div>
-                    <div class="card">
-                        <h3>API Development</h3>
-                        <p>Creating RESTful APIs and integrating third-party services.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Performance & Security</h3>
-                        <p>Optimizing performance while implementing security best practices.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Database Management</h3>
-                        <p>Designing and managing efficient databases with MySQL, PostgreSQL and MongoDB.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Backend Development</h3>
-                        <p>Building secure and scalable server-side applications using modern technologies.</p>
-                    </div>
-                    <div class="card">
-                        <h3>API Development</h3>
-                        <p>Creating RESTful APIs and integrating third-party services.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Performance & Security</h3>
-                        <p>Optimizing performance while implementing security best practices.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Database Management</h3>
-                        <p>Designing and managing efficient databases with MySQL, PostgreSQL and MongoDB.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Backend Development</h3>
-                        <p>Building secure and scalable server-side applications using modern technologies.</p>
-                    </div>
-                    <div class="card">
-                        <h3>API Development</h3>
-                        <p>Creating RESTful APIs and integrating third-party services.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Performance & Security</h3>
-                        <p>Optimizing performance while implementing security best practices.</p>
-                    </div>
+                    <div class="card"><h3>Database Management</h3><p>Designing and managing efficient databases with MySQL, PostgreSQL and MongoDB.</p></div>
+                    <div class="card"><h3>Backend Development</h3><p>Building secure and scalable server-side applications using modern technologies.</p></div>
+                    <div class="card"><h3>API Development</h3><p>Creating RESTful APIs and integrating third-party services.</p></div>
+                    <div class="card"><h3>Performance & Security</h3><p>Optimizing performance while implementing security best practices.</p></div>
+                    <div class="card"><h3>Database Management</h3><p>Designing and managing efficient databases with MySQL, PostgreSQL and MongoDB.</p></div>
+                    <div class="card"><h3>Backend Development</h3><p>Building secure and scalable server-side applications using modern technologies.</p></div>
+                    <div class="card"><h3>API Development</h3><p>Creating RESTful APIs and integrating third-party services.</p></div>
+                    <div class="card"><h3>Performance & Security</h3><p>Optimizing performance while implementing security best practices.</p></div>
+                    <div class="card"><h3>Database Management</h3><p>Designing and managing efficient databases with MySQL, PostgreSQL and MongoDB.</p></div>
+                    <div class="card"><h3>Backend Development</h3><p>Building secure and scalable server-side applications using modern technologies.</p></div>
+                    <div class="card"><h3>API Development</h3><p>Creating RESTful APIs and integrating third-party services.</p></div>
+                    <div class="card"><h3>Performance & Security</h3><p>Optimizing performance while implementing security best practices.</p></div>
                 </div>
             </div>
         </section>
@@ -152,7 +111,6 @@
         <section id="certificates" class="certificates hidden">
             <h2>Certificates</h2>
             <p>Verified learning milestones and achievements</p>
-
             <div class="cert-marquee-outer">
                 <div class="cert-marquee-track">
 
@@ -163,8 +121,7 @@
                         <p class="cert-issuer">HP LIFE</p>
                         <div class="cert-footer">
                             <span class="cert-date">2024</span>
-                            <a href="https://www.life-global.org/certificate/1cbb080f-95b1-4e63-b06a-22539e72613d"
-                                target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
+                            <a href="https://www.life-global.org/certificate/1cbb080f-95b1-4e63-b06a-22539e72613d" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
                         </div>
                     </div>
 
@@ -175,8 +132,7 @@
                         <p class="cert-issuer">Simplilearn</p>
                         <div class="cert-footer">
                             <span class="cert-date">2024</span>
-                            <a href="https://certificates.simplicdn.net/share/10271874_9939337_1779797771451.pdf"
-                                target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
+                            <a href="https://certificates.simplicdn.net/share/10271874_9939337_1779797771451.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
                         </div>
                     </div>
 
@@ -187,8 +143,7 @@
                         <p class="cert-issuer">HackerRank</p>
                         <div class="cert-footer">
                             <span class="cert-date">2024</span>
-                            <a href="https://www.hackerrank.com/certificates/iframe/fbfa75ea2e66" target="_blank"
-                                rel="noopener noreferrer" class="cert-link">View ↗</a>
+                            <a href="https://www.hackerrank.com/certificates/iframe/fbfa75ea2e66" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
                         </div>
                     </div>
 
@@ -199,8 +154,7 @@
                         <p class="cert-issuer">Simplilearn</p>
                         <div class="cert-footer">
                             <span class="cert-date">2024</span>
-                            <a href="YOUR_GIT_TRAINING_CERT_URL" target="_blank" rel="noopener noreferrer"
-                                class="cert-link">View ↗</a>
+                            <a href="YOUR_GIT_TRAINING_CERT_URL" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
                         </div>
                     </div>
 
@@ -211,8 +165,7 @@
                         <p class="cert-issuer">HP LIFE</p>
                         <div class="cert-footer">
                             <span class="cert-date">2024</span>
-                            <a href="https://www.life-global.org/certificate/1cbb080f-95b1-4e63-b06a-22539e72613d"
-                                target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
+                            <a href="https://www.life-global.org/certificate/1cbb080f-95b1-4e63-b06a-22539e72613d" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
                         </div>
                     </div>
 
@@ -223,8 +176,7 @@
                         <p class="cert-issuer">Simplilearn</p>
                         <div class="cert-footer">
                             <span class="cert-date">2024</span>
-                            <a href="https://certificates.simplicdn.net/share/10271874_9939337_1779797771451.pdf"
-                                target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
+                            <a href="https://certificates.simplicdn.net/share/10271874_9939337_1779797771451.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
                         </div>
                     </div>
 
@@ -235,8 +187,7 @@
                         <p class="cert-issuer">HackerRank</p>
                         <div class="cert-footer">
                             <span class="cert-date">2024</span>
-                            <a href="https://www.hackerrank.com/certificates/iframe/fbfa75ea2e66" target="_blank"
-                                rel="noopener noreferrer" class="cert-link">View ↗</a>
+                            <a href="https://www.hackerrank.com/certificates/iframe/fbfa75ea2e66" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
                         </div>
                     </div>
 
@@ -247,8 +198,7 @@
                         <p class="cert-issuer">Simplilearn</p>
                         <div class="cert-footer">
                             <span class="cert-date">2024</span>
-                            <a href="YOUR_GIT_TRAINING_CERT_URL" target="_blank" rel="noopener noreferrer"
-                                class="cert-link">View ↗</a>
+                            <a href="YOUR_GIT_TRAINING_CERT_URL" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
                         </div>
                     </div>
 
@@ -260,7 +210,6 @@
         <section id="skills" class="skills hidden">
             <h2>Skills</h2>
             <p>Creating APIs and Managing Data Efficiently</p>
-
             <div class="skill-grid">
                 <div class="skill-card">
                     <h3>Core Skills</h3>
@@ -294,7 +243,6 @@
         <!-- About -->
         <section id="about" class="about hidden">
             <h2>About Me</h2>
-            <div class="about-underline"></div>
 
             <p class="about-para">
                 I am a college student who loves learning new things, improving skills,
@@ -329,25 +277,25 @@
             </div>
         </section>
 
-    </div>
+    </div><!-- end container -->
 
     <script>
 
         /* Hamburger Menu */
         const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        const overlay = document.getElementById('mobile-overlay');
+        const navMenu   = document.getElementById('nav-menu');
+        const overlay   = document.getElementById('mobile-overlay');
 
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('open');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+            const isOpen = navMenu.classList.toggle('open');
+            hamburger.classList.toggle('active', isOpen);
+            overlay.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
         function closeMenu() {
-            hamburger.classList.remove('active');
             navMenu.classList.remove('open');
+            hamburger.classList.remove('active');
             overlay.classList.remove('active');
             document.body.style.overflow = '';
         }
@@ -357,49 +305,51 @@
         let wordIndex = 0, charIndex = 0, isDeleting = false;
 
         function typeEffect() {
-            const element = document.getElementById("typing-text");
-            const currentWord = words[wordIndex];
-            if (!isDeleting) { element.textContent = currentWord.substring(0, charIndex++); }
-            else { element.textContent = currentWord.substring(0, charIndex--); }
-            if (charIndex === currentWord.length + 1) { isDeleting = true; setTimeout(typeEffect, 1000); return; }
-            if (charIndex === 0 && isDeleting) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; }
+            const el = document.getElementById("typing-text");
+            const word = words[wordIndex];
+            el.textContent = word.substring(0, charIndex);
+            if (!isDeleting) {
+                charIndex++;
+                if (charIndex > word.length) { isDeleting = true; setTimeout(typeEffect, 1000); return; }
+            } else {
+                charIndex--;
+                if (charIndex === 0) { isDeleting = false; wordIndex = (wordIndex + 1) % words.length; }
+            }
             setTimeout(typeEffect, isDeleting ? 50 : 120);
         }
         typeEffect();
 
         /* Progress Bar */
         window.addEventListener("scroll", () => {
-            const scrollTop = document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            document.getElementById("progress-bar").style.width = (scrollTop / scrollHeight) * 100 + "%";
+            const st = document.documentElement.scrollTop;
+            const sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("progress-bar").style.width = (st / sh * 100) + "%";
         });
 
         /* Image Parallax Zoom on Scroll */
         window.addEventListener("scroll", () => {
             const imgWrap = document.querySelector(".img-zoom-wrap");
+            if (!imgWrap) return;
             const hero = document.querySelector(".hero");
-            const heroH = hero.offsetHeight;
-            const progress = Math.min(window.scrollY / heroH, 1);
-            const scale = 1 + progress * 0.35;
-            const brightness = 1 - progress * 0.45;
-            imgWrap.style.transform = `scale(${scale})`;
-            imgWrap.style.filter = `brightness(${brightness})`;
+            const progress = Math.min(window.scrollY / hero.offsetHeight, 1);
+            imgWrap.style.transform = `scale(${1 + progress * 0.35})`;
+            imgWrap.style.filter    = `brightness(${1 - progress * 0.45})`;
         });
 
         /* Reveal Animation */
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("show"); });
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
         });
-        document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+        document.querySelectorAll(".hidden").forEach(el => revealObserver.observe(el));
 
         /* Counter Animation */
         const animateCounter = (counter) => {
             const target = +counter.dataset.target;
-            const increment = target / (1800 / 20);
+            const inc = target / (1800 / 20);
             let count = 0;
             counter.innerText = "0";
             const update = () => {
-                count += increment;
+                count += inc;
                 if (count < target) { counter.innerText = Math.ceil(count); setTimeout(update, 20); }
                 else { counter.innerText = target + "+"; }
             };
@@ -407,14 +357,13 @@
         };
 
         const counterObserver = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) { animateCounter(entry.target); obs.unobserve(entry.target); }
+            entries.forEach(e => {
+                if (e.isIntersecting) { animateCounter(e.target); obs.unobserve(e.target); }
             });
         }, { threshold: 0.5 });
-        document.querySelectorAll(".counter").forEach(counter => counterObserver.observe(counter));
+        document.querySelectorAll(".counter").forEach(c => counterObserver.observe(c));
 
     </script>
 
 </body>
-
 </html>

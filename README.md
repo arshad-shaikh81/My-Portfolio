@@ -13,7 +13,7 @@ A responsive portfolio website built using HTML, CSS, and JavaScript.
 - CSS3
 - JavaScript
 
-## Live Demo
+## Website Link
 https://arshadportfolio-seven.vercel.app/
 ## Screenshots
 <img width="1860" height="942" alt="image" src="https://github.com/user-attachments/assets/c5c96051-7e7b-4962-8534-918683dac667" />

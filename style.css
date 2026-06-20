@@ -347,7 +347,9 @@ a.cv-btn:hover {
     animation: marqueeScroll 18s linear infinite;
 }
 
-.marquee-track:hover { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) {
+    .marquee-track:hover { animation-play-state: paused; }
+}
 
 @keyframes marqueeScroll {
     0%   { transform: translateX(0); }
@@ -387,7 +389,9 @@ a.cv-btn:hover {
     animation: certMarqueeScroll 16s linear infinite;
 }
 
-.cert-marquee-track:hover { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) {
+    .cert-marquee-track:hover { animation-play-state: paused; }
+}
 
 @keyframes certMarqueeScroll {
     0%   { transform: translateX(calc(-50% - 12px)); }
@@ -587,8 +591,13 @@ a.cv-btn:hover {
         justify-content: space-between;
     }
 
-    /* Hide desktop talk-btn inside nav-right; hamburger remains */
-    .talk-btn { display: none; }
+    /* Let's Talk button stays visible on mobile, sized to fit next to hamburger */
+    .talk-btn {
+        display: inline-block;
+        padding: 10px 16px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
 
     /* Slide-in drawer */
     nav ul {
@@ -647,14 +656,27 @@ a.cv-btn:hover {
     .services, .certificates, .about, .skills { margin-bottom: 80px; }
     .services h2, .certificates h2, .skills h2, .about h2 { font-size: 1.9rem; }
     .marquee-outer, .cert-marquee-outer { margin-top: 30px; }
-    .card { width: 250px; padding: 20px; }
-    .cert-card { width: 220px; padding: 18px; }
+
+    /* Service cards — smaller on phones */
+    .card { width: 210px; padding: 16px; }
+    .card h3 { font-size: 15px; margin-bottom: 10px; }
+    .card p { font-size: 13px; line-height: 1.5; }
+
+    /* Certificate cards — smaller icons/badges on phones */
+    .cert-card { width: 210px; padding: 14px; }
+    .cert-badge { font-size: 10px; padding: 3px 10px; margin-bottom: 8px; }
+    .cert-icon { font-size: 12px; margin-bottom: 4px; }
+    .cert-card h3 { font-size: 13px; margin-bottom: 4px; }
+    .cert-issuer { font-size: 11px; margin-bottom: 10px; }
+    .cert-footer { padding-top: 10px; }
+    .cert-date { font-size: 10px; }
+    .cert-link { font-size: 10px; padding: 5px 10px; }
 
     /* Skills */
     .skill-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-    .skill-card { padding: 18px; }
-    .skill-card h3 { font-size: 13px; }
-    .skill-card span { font-size: 12px; padding: 6px 10px; }
+    .skill-card { padding: 16px; }
+    .skill-card h3 { font-size: 12px; margin-bottom: 10px; }
+    .skill-card span { font-size: 11px; padding: 5px 9px; margin: 4px 3px; }
 
     /* About */
     .about-para { font-size: 15px; }
@@ -666,6 +688,17 @@ a.cv-btn:hover {
 }
 
 /* =========================
+   SMALL PHONES  ≤ 480px
+   Stack Let's Talk + hamburger if too tight
+========================= */
+@media (max-width: 480px) {
+    .talk-btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+}
+
+/* =========================
    SMALL PHONES  ≤ 400px
 ========================= */
 @media (max-width: 400px) {
@@ -674,4 +707,7 @@ a.cv-btn:hover {
     .img-zoom-wrap { max-width: 230px; }
     .hero-right img { height: 250px; max-width: 230px; }
     .skill-grid { grid-template-columns: 1fr; }
+    .card { width: 190px; padding: 14px; }
+    .cert-card { width: 190px; padding: 12px; }
+    .cert-icon { font-size: 11px; margin-bottom: 4px; }
 }

@@ -711,3 +711,20 @@ a.cv-btn:hover {
     .cert-card { width: 190px; padding: 12px; }
     .cert-icon { font-size: 11px; margin-bottom: 4px; }
 }
+@media (max-width: 480px) {
+    iframe[src*="noupe"] {
+        max-width: 90vw !important;
+        max-height: 65vh !important;
+        width: 320px !important;
+        height: 480px !important;
+        bottom: 70px !important;
+        right: 10px !important;
+    }
+    iframe[src*="noupe"] {
+    position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: 20px !important;
+    right: 20px !important;
+}
+}

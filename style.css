@@ -685,6 +685,11 @@ a.cv-btn:hover {
     .stat-item h3 { font-size: 2rem; }
     .stat-item p { font-size: 12px; }
     .about-tags span { font-size: 13px; padding: 8px 16px; }
+
+    /* Hide the Noupe chatbot entirely on phones */
+    #JotformAgent-019ee3a285467045a6159eba7e902ab3be2a {
+        display: none !important;
+    }
 }
 
 /* =========================
@@ -710,21 +715,4 @@ a.cv-btn:hover {
     .card { width: 190px; padding: 14px; }
     .cert-card { width: 190px; padding: 12px; }
     .cert-icon { font-size: 11px; margin-bottom: 4px; }
-}
-@media (max-width: 480px) {
-    iframe[src*="noupe"] {
-        max-width: 90vw !important;
-        max-height: 65vh !important;
-        width: 320px !important;
-        height: 480px !important;
-        bottom: 70px !important;
-        right: 10px !important;
-    }
-    iframe[src*="noupe"] {
-    position: fixed !important;
-    top: auto !important;
-    left: auto !important;
-    bottom: 20px !important;
-    right: 20px !important;
-}
 }

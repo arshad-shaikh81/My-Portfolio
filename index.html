@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <script src='https://www.noupe.com/embed/019ee3a285467045a6159eba7e902ab3be2a.js'></script>
 
     <!-- Progress Bar -->
     <div id="progress-bar"></div>
@@ -280,6 +279,36 @@
 
     </div><!-- end container -->
 
+    <!-- AI Chatbot Widget (rule-based, no API key needed) -->
+    <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open chat">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+    </button>
+
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <div>
+                <h4>Arshad's Assistant</h4>
+                <span>Ask me about Arshad 👋</span>
+            </div>
+            <button class="chatbot-close" id="chatbot-close" aria-label="Close chat">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages"></div>
+        <div class="chatbot-suggestions" id="chatbot-suggestions">
+            <button>Skills</button>
+            <button>Certificates</button>
+            <button>Projects</button>
+            <button>Contact</button>
+        </div>
+        <div class="chatbot-input-row">
+            <input type="text" id="chatbot-input" placeholder="Type a question...">
+            <button id="chatbot-send" aria-label="Send">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+        </div>
+    </div>
+
     <script>
 
         /* Hamburger Menu */
@@ -363,6 +392,88 @@
             });
         }, { threshold: 0.5 });
         document.querySelectorAll(".counter").forEach(c => counterObserver.observe(c));
+
+        /* =========================
+           AI CHATBOT (rule-based, no API key needed)
+        ========================= */
+        (function () {
+            const toggle      = document.getElementById('chatbot-toggle');
+            const win         = document.getElementById('chatbot-window');
+            const closeBtn    = document.getElementById('chatbot-close');
+            const messages    = document.getElementById('chatbot-messages');
+            const input       = document.getElementById('chatbot-input');
+            const sendBtn     = document.getElementById('chatbot-send');
+            const suggestions = document.getElementById('chatbot-suggestions');
+
+            const k = {
+                name: "Shaikh Arshad",
+                bio: "I'm a college student who loves learning new things and improving my skills. I'm developing my knowledge in technology and enjoy solving problems with a positive, learning mindset.",
+                skills: ["Git & GitHub", "Authentication", "Spring Boot", "Python", "Java", "PHP", "MySQL", "REST APIs", "SQL", "VS Code", "IntelliJ IDEA", "Postman"],
+                certificates: ["AI for Beginners — HP LIFE", "GitHub Basics — Simplilearn", "Problem Solving (DSA) — HackerRank", "Git Training — Simplilearn"],
+                services: ["Database Management", "Backend Development", "API Development", "Performance & Security"],
+                stats: "50+ DSA problems solved, 5 backend projects, 10+ technologies learned, and 1+ year of learning experience.",
+                resume: "resume.pdf",
+                whatsapp: "https://wa.me/919898368956",
+                linkedin: "https://www.linkedin.com/in/arshad-shaikh-990878365/",
+                github: "https://github.com/arshad-shaikh81"
+            };
+
+            const rules = [
+                { keys: ["hi", "hello", "hey", "yo"], reply: () => `Hey! I'm ${k.name}'s assistant. Ask me about his skills, certificates, services, or how to get in touch!` },
+                { keys: ["skill", "tech", "stack", "language", "know"], reply: () => `Arshad's key skills: ${k.skills.join(", ")}.` },
+                { keys: ["certificate", "certification", "course"], reply: () => `Arshad has earned:\n${k.certificates.join("\n")}` },
+                { keys: ["service", "offer"], reply: () => `Arshad's services: ${k.services.join(", ")}.` },
+                { keys: ["project", "work", "portfolio", "build", "built"], reply: () => `Arshad has built 5 backend projects so far, focused on backend systems and APIs. Check the Services & Certificates sections above for more details!` },
+                { keys: ["about", "who are you", "bio", "yourself", "background"], reply: () => k.bio },
+                { keys: ["resume", "cv", "download"], reply: () => `You can download Arshad's resume using the "Download Resume" button at the top of the page, or grab it directly here: ${k.resume}` },
+                { keys: ["experience", "year", "stat", "achievement"], reply: () => k.stats },
+                { keys: ["contact", "reach", "email", "hire", "whatsapp", "linkedin", "github", "talk"], reply: () => `You can reach Arshad here:\nWhatsApp: ${k.whatsapp}\nLinkedIn: ${k.linkedin}\nGitHub: ${k.github}` },
+                { keys: ["thank"], reply: () => "You're welcome! Anything else you'd like to know about Arshad?" },
+                { keys: ["bye", "goodbye"], reply: () => "Thanks for stopping by! Feel free to reach out anytime." }
+            ];
+
+            function getReply(text) {
+                const lower = text.toLowerCase();
+                for (const rule of rules) {
+                    if (rule.keys.some(key => lower.includes(key))) return rule.reply();
+                }
+                return "I'm not totally sure about that one — but you can ask me about Arshad's skills, certificates, services, resume, or how to contact him!";
+            }
+
+            function addMessage(text, sender) {
+                const div = document.createElement('div');
+                div.className = `msg ${sender}`;
+                div.textContent = text;
+                messages.appendChild(div);
+                messages.scrollTop = messages.scrollHeight;
+            }
+
+            function botReply(text) {
+                setTimeout(() => addMessage(text, 'bot'), 400);
+            }
+
+            function handleSend(presetText) {
+                const value = (presetText || input.value).trim();
+                if (!value) return;
+                addMessage(value, 'user');
+                input.value = '';
+                botReply(getReply(value));
+            }
+
+            toggle.addEventListener('click', () => {
+                win.classList.toggle('open');
+                if (win.classList.contains('open') && messages.childElementCount === 0) {
+                    botReply(`Hi! I'm ${k.name}'s portfolio assistant 🤖 Ask me about his skills, certificates, services, or how to get in touch!`);
+                }
+            });
+
+            closeBtn.addEventListener('click', () => win.classList.remove('open'));
+            sendBtn.addEventListener('click', () => handleSend());
+            input.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleSend(); });
+            suggestions.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => handleSend(btn.textContent));
+            });
+        })();
 
     </script>
 
